@@ -6,9 +6,9 @@ import (
 )
 
 func main() {
-	max := 10
-	x := rand.IntN(max)
-	y := rand.IntN(max)
+	maxValue := 10
+	x := rand.IntN(maxValue)
+	y := rand.IntN(maxValue)
 	fmt.Printf("The value for x is %v of type %T\n", x, x)
 	fmt.Printf("The value for y is %v of type %T\n", y, y)
 
