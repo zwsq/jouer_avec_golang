@@ -52,4 +52,18 @@ func main() {
 	fmt.Println(rand.Intn(maximum_value))
 	fmt.Println(rand.Intn(maximum_value))
 	fmt.Println(rand.Intn(maximum_value))
+
+	nu := []int{3, 3, 2}
+	twoSum(nu, 5)
+}
+
+func twoSum(nums []int, target int) []int {
+	answer := []int{}
+	for i := range nums {
+		if nums[i]+nums[i+1] == target {
+
+		}
+	}
+	return answer
+
 }

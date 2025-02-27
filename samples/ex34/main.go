@@ -15,11 +15,17 @@ func main() {
 	//Slices
 	{
 		slice1 := []int{2, 3, 4, 5, 6}
-		fmt.Println(slice1)
 		slice2 := []int{}
 		for v := range slice1 {
 			slice2 = append(slice2, v*2)
 		}
 		fmt.Println(slice2)
+
+		slice3 := []string{"Abolfazl", "ZWSQ", "Ich bin nicht allein"}
+		for _, v := range slice3 {
+			fmt.Println(v)
+		}
+
 	}
+
 }
