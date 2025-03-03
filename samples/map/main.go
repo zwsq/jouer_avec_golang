@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	iMap := map[string]string{"home_range": "192.168.2.0/24", "company_range": "192.168.1.0/24", "lab_range": "192.168.102.0/24"}
@@ -41,5 +43,24 @@ func main() {
 		fmt.Println("Queried value does not exist.")
 	} else {
 		fmt.Printf("exits %v\n", v)
+	}
+	exercises()
+
+}
+func exercises() {
+	fmt.Println("************************************************************")
+	fmt.Println("************************************************************")
+	fmt.Println("************************************************************")
+
+	map49 := make(map[string][]string)
+	map49[`bond_jame`] = []string{`Say my name`, `what's your name`, `she's a here`}
+	map49[`zwsq`] = []string{`danger`, `road runner`, `migmig`}
+
+	for k, v := range map49 {
+		fmt.Printf("values for the key: %v ==> ", k)
+		for i, v2 := range v {
+			fmt.Printf("%v %v ", i, v2)
+		}
+		fmt.Println()
 	}
 }
