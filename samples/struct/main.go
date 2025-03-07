@@ -4,6 +4,12 @@ import (
 	"fmt"
 )
 
+type person struct {
+	firstName      string
+	lastName       string
+	favoriteColors []string
+}
+
 type options struct {
 	gpu   bool
 	tenG  bool
@@ -19,12 +25,6 @@ type vritualMachine struct {
 	memoryInGB float32
 	vlan       string
 	options    options // embedded struct
-}
-
-type person struct {
-	firstName      string
-	lastName       string
-	favoriteColors []string
 }
 
 func initialExercises() {
@@ -72,7 +72,7 @@ func initialExercises() {
 }
 
 // Struct with slice
-func exercise54() {
+func exercise53() {
 	girl := person{
 		firstName:      "Jenny",
 		lastName:       "Juano",
@@ -93,12 +93,14 @@ func exercise54() {
 }
 
 // Struct with map
-func exercise55() {
+func exercise54() {
+
 	girl := person{
 		firstName:      "Jenny",
 		lastName:       "Juano",
 		favoriteColors: []string{"Pink", "Purple"},
 	}
+
 	boy := person{
 		firstName:      "James",
 		lastName:       "Bond",
@@ -109,6 +111,7 @@ func exercise55() {
 		girl.lastName: girl,
 		boy.lastName:  boy,
 	}
+
 	for _, v := range staffBook {
 		fmt.Println(v)
 		for _, v2 := range v.favoriteColors {
@@ -118,7 +121,7 @@ func exercise55() {
 }
 
 // Struct with embedded struct
-func exercise56() {
+func exercise55() {
 	type engine struct {
 		electric bool
 	}
@@ -146,8 +149,17 @@ func exercise56() {
 }
 
 // Struct with anonymous struct
-func exercise57() {
-
+func exercise56() {
+	announ := struct {
+		first     string
+		friends   map[string]int
+		favDrinks []string
+	}{
+		first:     "abolfazl",
+		friends:   map[string]int{"Zari": 26, "Jasmine": 30},
+		favDrinks: []string{"Champani", "Limonade"},
+	}
+	fmt.Printf("%v\n", announ)
 }
 
 func main() {
