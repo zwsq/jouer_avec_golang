@@ -4,6 +4,9 @@ import "fmt"
 
 func main() {
 
+	// The deferred function call is not executed until the surrounding function returns or panics
+	defer variadic(1, 2, 3, 4, 56, 23, 4, 23)
+
 	foo()
 
 	bar("ZWSQ")
