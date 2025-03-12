@@ -13,6 +13,13 @@ func main() {
 	fmt.Println(f())
 	fmt.Println(f())
 	fmt.Println(f())
+
+	// It is reset when you assign it to another variable but the previous varialbe still has the value! WooW
+	g := incrementor()
+	fmt.Println(g())
+	fmt.Println(g())
+
+	fmt.Println(f())
 }
 
 func incrementor() func() int {
