@@ -5,6 +5,8 @@ import "fmt"
 func main() {
 
 	// The deferred function call is not executed until the surrounding function returns or panics
+
+	// Defered functions run in Last In First Out aka LIFO order
 	defer variadic(1, 2, 3, 4, 56, 23, 4, 23)
 
 	foo()
