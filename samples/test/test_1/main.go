@@ -15,8 +15,8 @@ func main() {
 		radius: 32,
 	}
 
-	info(c)
-	info(s)
+	Info(c)
+	Info(s)
 
 }
 
@@ -30,17 +30,18 @@ type circle struct {
 }
 
 type shape interface {
-	area_calc() float64
+	Area_calc() float64
 }
 
-func (c circle) area_calc() float64 {
+func (c circle) Area_calc() float64 {
 	return math.Pi * math.Pow(c.radius, 2)
 }
 
-func (s square) area_calc() float64 {
+func (s square) Area_calc() float64 {
 	return s.length * s.width
 }
 
-func info(s shape) {
-	fmt.Printf("The area of the shape %#T is %v\n", s, s.area_calc())
+func Info(s shape) float64 {
+	fmt.Printf("The area of the shape %#T is %v\n", s, s.Area_calc())
+	return s.Area_calc()
 }
