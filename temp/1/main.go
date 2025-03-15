@@ -11,7 +11,7 @@ func main() {
 
 func powerUp(input int, power int) int {
 	if power < 0 {
-		log.Fatalln("power is invalid")
+		log.Fatalln("power is invalid ")
 	}
 	output := 1
 	for power != 0 {
