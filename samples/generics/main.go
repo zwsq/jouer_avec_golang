@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"golang.org/x/exp/constraints"
+)
 
 //--------------------------------------------------------------
 
@@ -35,11 +39,23 @@ func add3[T validNumbers](a, b T) T {
 	return a + b
 }
 
+//--------------------------------------------------------------
 
-func main() {
-	fmt.Println(add1(1, 3.3))
-	fmt.Println(add2(1, 6.3))
-	fmt.Println(add3(331, 6.3))
+// Using constraints
+type positiveNumbers interface {
+	constraints.Float | constraints.Integer
 }
 
+func add4[T positiveNumbers](a, b T) T {
+	return a + b
+}
 
+// --------------------------------------------------------------
+func main() {
+	var myNumber1 myNumber = 1395
+
+	fmt.Println(add1(1, 3))
+	fmt.Println(add2(1, 6))
+	fmt.Println(add3(myNumber1, 6))
+	fmt.Println(add4(230, 6))
+}

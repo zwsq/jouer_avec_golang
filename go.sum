@@ -1,4 +1,2 @@
-github.com/zwsq/g v1.0.0-pre-release h1:suW3Ef884eLPoKOqXEz0GByyMxTKGMqtkJaIYE68l8E=
-github.com/zwsq/g v1.0.0-pre-release/go.mod h1:bK+5LHFoBQ/60st6pxyG+HpOBKIXDKZBRO2D9jzSrjA=
-golang.org/x/exp v0.0.0-20250215185904-eff6e970281f h1:oFMYAjX0867ZD2jcNiLBrI9BdpmEkvPyi5YrBGXbamg=
-golang.org/x/exp v0.0.0-20250215185904-eff6e970281f/go.mod h1:BHOTPb3L19zxehTsLoJXVaTktb06DFgmdW6Wb9s8jqk=
+golang.org/x/exp v0.0.0-20250305212735-054e65f0b394 h1:nDVHiLt8aIbd/VzvPWN6kSOPE7+F/fNFDSXLVYkE/Iw=
+golang.org/x/exp v0.0.0-20250305212735-054e65f0b394/go.mod h1:sIifuuw/Yco/y6yb6+bDNfyeQ/MdPUy/hKEMYQV17cM=
