@@ -1,46 +1,31 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
-	"log"
+	"runtime"
+	"sync"
 )
 
+var wg sync.WaitGroup
+
 func main() {
-	{
-		user1 := user{Name: "Billie", Age: 26}
-		user2 := user{Name: "Ken", Age: 65}
-		users := []user{user1, user2}
+	wg.Add(3)
+	go foo()
+	go bar()
+	fmt.Println(runtime.NumCPU())
+	wg.Wait()
+}
 
-		marshalled, err := json.Marshal(users)
-		if err != nil {
-			log.Fatal("Unable to process the object: ", err)
-		}
-
-		fmt.Println("Marshalled: ", string(marshalled))
+func foo() {
+	for i := 1; i < 11; i++ {
+		fmt.Println("Foo ", i)
 	}
-	{
-		customers := []customer{}
-		fmt.Println(customers)
+	wg.Done()
+}
 
-		err := json.Unmarshal([]byte(sampleJson), &customers)
-		if err != nil {
-			log.Fatal("Unable to process the given json: ", err)
-		}
-
-		fmt.Println(customers)
+func bar() {
+	for i := 1; i < 11; i++ {
+		fmt.Println("Bar ", i)
 	}
+	wg.Done()
 }
-
-type user struct {
-	Name string
-	Age  int
-}
-
-type customer struct {
-	FirstName string `json:"firstName"`
-	LastName  string `json:"lastName"`
-	Age       int    `json:"age"`
-}
-
-var sampleJson string = `[{"firstName": "John","lastName": "Smith","age": 25}]`
