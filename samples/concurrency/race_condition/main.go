@@ -20,7 +20,7 @@ func unHandledRaceNoWg(limit int) {
 		}()
 	}
 	elapsed := time.Since(start)
-	fmt.Println("Unhandled without waitgroup:\t", counter, "\t", elapsed)
+	fmt.Println("Unhandled race condition without waitgroup:\t", counter, "\t\t", elapsed)
 }
 
 func unHandledRace(limit int) {
@@ -39,7 +39,7 @@ func unHandledRace(limit int) {
 	}
 	wg.Wait()
 	elapsed := time.Since(start)
-	fmt.Println("Unhandled with waitgroup:\t", counter, "\t", elapsed)
+	fmt.Println("Unhandled race condition with waitgroup:\t", counter, "\t\t", elapsed)
 }
 
 func handledRaceWithMutex(limit int) {
@@ -61,7 +61,7 @@ func handledRaceWithMutex(limit int) {
 	}
 	wg.Wait()
 	elapsed := time.Since(start)
-	fmt.Println("Handled with mutex:\t\t", counter, "\t", elapsed)
+	fmt.Println("Handled race condition with mutex:\t\t", counter, "\t\t", elapsed)
 }
 
 func handledRaceWithAtomic(limit int) {
@@ -78,11 +78,14 @@ func handledRaceWithAtomic(limit int) {
 	}
 	wg.Wait()
 	elapsed := time.Since(start)
-	fmt.Println("Handled with Atomic:\t\t", counter, "\t", elapsed)
+	fmt.Println("Handled race condition with atomic:\t\t", counter, "\t\t", elapsed)
 }
 func main() {
 	fmt.Println()
-	upperLimit := 5000000
+	fmt.Println("\t\tFunction\t\t\tCounted To\t Execution Time")
+	fmt.Println()
+
+	upperLimit := 50000
 	unHandledRaceNoWg(upperLimit)
 	unHandledRace(upperLimit)
 	handledRaceWithAtomic(upperLimit)
