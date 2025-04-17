@@ -8,7 +8,7 @@ import (
 func main() {
 	zooj := make(chan int)
 	fard := make(chan int)
-	quit := make(chan int)
+	quit := make(chan bool)
 
 	log.Print("Saving values to the channels")
 	go send(zooj, fard, quit)
@@ -19,7 +19,7 @@ func main() {
 
 }
 
-func send(z, f, q chan<- int) {
+func send(z, f chan<- int, q chan<- bool) {
 	for i := 0; i < 100; i++ {
 		if i%2 == 0 {
 			z <- i
@@ -27,19 +27,23 @@ func send(z, f, q chan<- int) {
 			f <- i
 		}
 	}
-	q <- 1020
+	close(q)
 }
 
-func receive(z, f, q <-chan int) {
+func receive(z, f <-chan int, q <-chan bool) {
 	for {
 		select {
 		case v := <-z:
 			fmt.Println("Zooj", v)
 		case v := <-f:
 			fmt.Println("Fard", v)
-		case v := <-q:
-			fmt.Println("Quit", v)
-			return
+		case i, ok := <-q:
+			if !ok {
+				fmt.Println("Exiting", i)
+				return
+			} else {
+				fmt.Println("I should not be here", i)
+			}
 		}
 	}
 
