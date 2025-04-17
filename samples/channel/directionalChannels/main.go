@@ -28,16 +28,20 @@ func main() {
 	*/
 	c := make(chan int)
 
+	// send
 	go foo(c)
+
+	// receive
 	bar(c)
 
 }
 
-// send value to the channel
+// send values to the channel
 func foo(c chan<- int) {
 	c <- 73
 }
 
+// receive values from a channel
 func bar(c <-chan int) {
 	fmt.Println(<-c)
 }
