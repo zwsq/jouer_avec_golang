@@ -1,3 +1,4 @@
+// Info
 package main
 
 import (
